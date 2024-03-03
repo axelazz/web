@@ -1,3 +1,43 @@
 body{
     margin: 0 auto;
 }
+
+header{
+    max-height: 74px;
+    background-color: aqua;
+}
+
+.container{
+    padding: 17px 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 40px;
+}
+
+
+.esc{
+    max-height: 26px;
+    max-width: 92px;
+    font-family: 'Lora';
+    font-size: 26px;
+    margin-top: 3px;
+    margin-bottom: 11px;
+    color: #2E2E2E;
+}
+
+.list-style{
+    list-style-type: none;
+    display:flex;
+}
+
+
+.buttons{
+    text-decoration: none;
+    font-family: 'Oxygen';
+    margin-right: 30px;
+    margin-top: 10px;
+    color: #2E2E2E;
+    font-size: 12px;
+    letter-spacing: 0.6px
+}
