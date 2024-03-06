@@ -1,490 +1,403 @@
-body{
-    margin: 0;
-    padding: 0;
-
-}
-*{
-    border: 0;
-
-}
-header{
-    background-image: url(img/main-background.png);
-    /* height: 500px; */
-    background-size: cover; 
-    padding-bottom: 120px;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.header-wrapper{
-    padding: 17px 250px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+* {
+  border: 0;
 }
 
-
-.header-logo{
-    font-family: 'Lora';
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 26px;
-    letter-spacing: 0;
-    color: rgba(255, 255, 255, 1);
-
+header {
+  background-image: url(img/main-background.png);
+  background-size: cover;
+  padding-bottom: 120px;
 }
 
-.list-style{
-    list-style-type: none;
-    display:flex;
+.header-wrapper {
+  padding: 17px 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-
-.navigation-item{
-    text-decoration: none;
-    cursor: pointer;
-    display:block;
-    padding: 10px 20px;
-    font: 400 12px/20px 'Oxygen';
-    color: rgba(256, 256, 256, 0.6);
-    text-transform: uppercase;
+.header-logo {
+  font-family: "Lora";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 1);
 }
 
-.header-title{
-    padding-top: 130px;
-    color: #FFFFFF;
-    font: 400 50px/51px 'Lora';
-    letter-spacing: 2px;
-    text-align: center;
-
+.list-style {
+  list-style-type: none;
+  display: flex;
 }
 
-.sub-title{
-    font: 400 17px/50px 'Oxygen';
-    letter-spacing: 0;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.63);
-
+.navigation__item {
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  padding: 10px 20px;
+  font: 400 12px/20px "Oxygen";
+  color: rgba(256, 256, 256, 0.6);
+  text-transform: uppercase;
 }
 
-
-.lastpost-button{
-    margin: 0 auto;
-    width: 167px;
-    height: 44px;
-    font: 400 13px/40px 'Oxygen';
-    letter-spacing: 0;
-    text-align: center;
-    background: rgba(221, 120, 63, 1);
-    color: rgba(255, 255, 255, 0.8);
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 2px;
-
-
-
+.header-title {
+  padding-top: 130px;
+  color: #ffffff;
+  font: 400 50px/51px "Lora";
+  letter-spacing: 2px;
+  text-align: center;
 }
 
-
-.main-menu{
-    max-width: 100%;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
+.sub-title {
+  font: 400 17px/50px "Oxygen";
+  letter-spacing: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.63);
 }
 
-.main-categories{
-    max-width: 100%;
-    margin: 0 auto; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    
-
-
+.lastpost__button {
+  margin: 0 auto;
+  width: 167px;
+  height: 44px;
+  font: 400 13px/40px "Oxygen";
+  letter-spacing: 0;
+  text-align: center;
+  background: rgba(221, 120, 63, 1);
+  color: rgba(255, 255, 255, 0.8);
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2px;
 }
 
-.categories-list{
-    width: 960px;
-    list-style-type: none;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+.main-menu {
+  max-width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
-.categories-item{
-    text-decoration: none;
-    cursor: pointer;
-    display: block;
-    padding: 10px 47px; 
-    font: 400 14px/20px 'Lora';
-    color: black;
-    text-align: center;
-    color: rgba(118, 128, 136, 1);
-
+.main-categories {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-main{
-    margin: 0 auto;
-    background: rgba(247, 247, 247, 1);
+.categories-list {
+  width: 960px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.main-title{
-    padding-top: 60px;
-    font: 400 20px/27px 'Oxygen';
-    text-align: center;
-    color: rgba(46, 46, 46, 1);
-    letter-spacing: 2px;
-    margin-top: 0;
+.categories__item {
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  padding: 10px 47px;
+  font: 400 14px/20px "Lora";
+  color: black;
+  text-align: center;
+  color: rgba(118, 128, 136, 1);
 }
 
-.title-underline{
-    margin: 0 auto;
-    background: rgba(222, 222, 222, 1);
-    width: 180px;
-    height: 1px;
-    margin-top: 16px;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+main {
+  margin: 0 auto;
+  background: rgba(247, 247, 247, 1);
 }
 
-.main-content{
-    margin: 0 auto;
-    max-width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    
-
+.main-title {
+  padding-top: 60px;
+  font: 400 20px/27px "Oxygen";
+  text-align: center;
+  color: rgba(46, 46, 46, 1);
+  letter-spacing: 2px;
+  margin-top: 0;
 }
 
-.main-link-card{
-    text-decoration: none;
+.title-underline {
+  margin: 0 auto;
+  background: rgba(222, 222, 222, 1);
+  width: 180px;
+  height: 1px;
+  margin-top: 16px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-
-.main-cardlist{
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding-left: 0;
-    gap: 20px;
-    flex-wrap: wrap;
-
+.main-content {
+  margin: 0 auto;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-
-
-
-
-.big-card{
-    background-image: url(img/main-rightcard.png);
-    background-size: 480px 280px;
-    background-repeat: no-repeat;
-     /* width: 480px;  
-    height: 280px;   */
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 12px;
-    
+.main-link__card {
+  text-decoration: none;
 }
 
-.big-card-link{
-    background-image: url(img/main-leftcard.png);
-    background-size: 480px 280px;
-    background-repeat: no-repeat;
-     /* width: 480px;  
-    height: 280px;   */
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 12px;
-    
+.main-cardlist {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding-left: 0;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.left-card-button{
-    margin: 0;
-    width: 108px;
-    height: 26px;
-    font: 400 12px/26px 'Oxygen';
-    letter-spacing: 0;
-    text-align: left;
-    background-color: #A872B7;
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    justify-content: space-between;
-    border-radius: 2px;
-    text-transform: uppercase;
-    /* text-decoration: none; */
-}
-.right-card-button{
-    margin: 0;
-    width: 87px;
-    height: 26px;
-    font: 400 12px/26px 'Oxygen';
-    letter-spacing: 0;
-    text-align: left;
-    background: rgba(221, 120, 63, 1);
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    justify-content: space-between;
-    border-radius: 2px;
-    text-transform: uppercase;
-   
-    
+.big-card {
+  background-image: url(img/main-rightcard.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 12px;
 }
 
-
-.big-card-title{
-    padding-top: 110px;
-    font: 400 27px/30px 'Lora';
-    letter-spacing: 0;
-    text-align: left;
-    color: rgba(255, 255, 255, 1);
+.big-card__link {
+  background-image: url(img/main-leftcard.png);
+  /* background-size: 480px 280px; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 12px;
 }
 
-.big-card-subtitle{
-    padding-top: 7px;
-    font: 400 14px/25px 'Oxygen';
-    letter-spacing: 0;
-    color: rgba(255, 255, 255, 0.7);
-
-
+.left-card__button {
+  margin: 0;
+  width: 108px;
+  height: 26px;
+  font: 400 12px/26px "Oxygen";
+  letter-spacing: 0;
+  text-align: left;
+  background-color: #a872b7;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  justify-content: space-between;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.right-card__button {
+  margin: 0;
+  width: 87px;
+  height: 26px;
+  font: 400 12px/26px "Oxygen";
+  letter-spacing: 0;
+  text-align: left;
+  background: rgba(221, 120, 63, 1);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  justify-content: space-between;
+  border-radius: 2px;
+  text-transform: uppercase;
 }
 
-
-.big-card-author{
-    padding-top: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    
-
-
+.big-card__title {
+  padding-top: 110px;
+  font: 400 27px/30px "Lora";
+  letter-spacing: 0;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
 }
 
-.big-card-list{
-    list-style-type: none;
-    display:flex;
-    padding: 0;
-    justify-content: space-between;
-    align-items: center; 
+.big-card__subtitle {
+  padding-top: 7px;
+  font: 400 14px/25px "Oxygen";
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-
-.big-card-author-image{
-    border-radius: 60px;
-    padding-right: 10px;
-    
+.big-card__author {
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.big-card-footer{
-    display: flex;
-    width: 404px;
-    height: 35px;
-    justify-content: space-between;
+.big-card__list {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.big-card-name{
-    font: 400 11px/35px 'Oxygen';
-    letter-spacing: 0em;
-    color: rgba(255, 255, 255, 0.7);
-
-
-
+.big-card__author__image {
+  border-radius: 60px;
+  padding-right: 10px;
 }
 
-.big-card-date{
-    font: 400 11px/35px 'Oxygen';
-    letter-spacing: 0em;
-    color: rgba(255, 255, 255, 0.7);
+.big-card__footer {
+  display: flex;
+  width: 404px;
+  height: 35px;
+  justify-content: space-between;
 }
 
-
-.add-content{
-    margin: 0 auto;
-    max-width: 1000px;
-    padding-bottom: 89px; 
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 50px 20px;
+.big-card__name {
+  font: 400 11px/35px "Oxygen";
+  letter-spacing: 0em;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/*.small-card-list{
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding-left: 0;
-    gap: 20px;
-    flex-wrap: wrap;
-
-}*/
-.small-card{
-    width: 296px;
-    height: 291px;
-
-    /* margin: 6px 12px 12px 12px; */
-    /* margin: 0; */
-    /* background-size: 296px 291px; */
-    /* max-width: 296px; */
-    /* max-height: 291px; */
-    /* justify-content: space-between; */
+.big-card__date {
+  font: 400 11px/35px "Oxygen";
+  letter-spacing: 0em;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-
-.small-card-title{
-    margin: 0 auto;
-    padding-top: 14px;
-    padding-left: 13px; 
-    font: 400 16px/21px 'Lora';
-    letter-spacing: 0;
-    color: rgba(16, 19, 21, 1);
-    background-color: #FFFFFF;
-    
-
-
-
+.add-content {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding-bottom: 140px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 50px 20px;
 }
 
-.small-card-subtitle{
-    padding-top: 6px;
-    padding-left: 13px;
-    padding-bottom: 33px;
-    font:400 13px/19px 'Oxygen';
-    letter-spacing: 0;
-    color: rgba(122, 122, 122, 1);
-    background-color: #FFFFFF;
+.small-card {
+  width: 296px;
+  height: 291px;
 
+} 
 
-
+.small-card__title {
+  margin: 0 auto;
+  padding-top: 14px;
+  padding-left: 13px;
+  font: 400 16px/21px "Lora";
+  letter-spacing: 0;
+  color: rgba(16, 19, 21, 1);
+  background-color: #ffffff;
 }
 
-.small-title-underline{
-    margin: 0 auto;
-    background: rgba(222, 222, 222, 1);
-    width: 296px;
-    height: 1px;
-    /* justify-content: space-between; */
-    align-items: center; 
+.small-card__subtitle{
+  padding-top: 6px;
+  padding-left: 13px;
+  padding-bottom: 33px;
+  font: 400 13px/19px "Oxygen";
+  letter-spacing: 0;
+  color: rgba(122, 122, 122, 1);
+  background-color: #ffffff;
 }
 
-.small-card-author{
-    /* padding-top: 15px; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #FFFFFF;
-    margin: 0;
+.small-title__underline {
+  margin: 0 auto;
+  background: rgba(222, 222, 222, 1);
+  width: 296px;
+  height: 1px;
+  align-items: center;
 }
 
-.small-card-list{
-    list-style-type: none;
-    display:flex;
-    padding: 0;
-    margin: 0 auto;
-    justify-content: space-between;
-    align-items: center; 
+.small-card__author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  margin: 0;
 }
 
-
-.small-card-author-image{
-    border-radius: 60px;
-    padding-right: 10px;
-    
+.small-card__list {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.small-card-footer{
-    padding-top: 10px;
-    margin:0;
-    display: flex;
-    width: 220px;
-    height: 48px;
-    justify-content: space-between;
+.small-card__author__image {
+  border-radius: 60px;
+  padding-right: 10px;
 }
 
-.small-card-name{
-    font: 400 11px/35px 'Oxygen';
-    letter-spacing: 0em;
-    color: rgba(153, 153, 153, 1);
-
-
+.small-card__footer {
+  padding-top: 10px;
+  margin: 0;
+  display: flex;
+  width: 220px;
+  height: 48px;
+  justify-content: space-between;
 }
 
-
-
-.small-card-date{
-    font: 400 12px/35px 'Oxygen';
-    letter-spacing: 0em;
-    color: rgba(153, 153, 153, 1);
-
+.small-card__name {
+  font: 400 11px/35px "Oxygen";
+  letter-spacing: 0em;
+  color: rgba(153, 153, 153, 1);
 }
 
-footer{
-    margin: 0;
-    background-image: url(img/footer.png);
-    height: 89px;
-    background-size: cover;
-    background-color: rgba(35, 47, 56, 0.6);
-    max-width: 100%;
-
+.small-card__date {
+  font: 400 12px/35px "Oxygen";
+  letter-spacing: 0em;
+  color: rgba(153, 153, 153, 1);
 }
 
-.footer-wrapper{
-    padding-left: 250px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+footer {
+  margin: 0;
+  background-image: url(img/footer.png);
+  background-color: rgba(35, 47, 56, 0.5);
+  background-blend-mode: multiply;
+  height: 89px;
+  background-size: cover;
+  max-width: 100%;
 }
 
-
-.footer-logo{
-    font-family: 'Lora';
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 26px;
-    letter-spacing: 0;
-    color: rgba(255, 255, 255, 1);
-
+.footer-wrapper {
+  padding-left: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footer-navigation-list{
-    margin: 17px 250px; 
+.footer-logo {
+  font-family: "Lora";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 1);
 }
 
-.footer-list-style{
-    list-style-type: none;
-    display:flex;
+.footer-navigation__list{
+  margin: 17px 250px;
 }
 
-
-.navigation-link{
-    text-decoration: none;
-    cursor: pointer;
-    display:block;
-    padding: 10px 20px;
-    font: 400 11px/3px 'Oxygen';
-    color: rgba(255, 255, 255, 0.6);
-    text-transform: uppercase;
+.footer-list__style {
+  list-style-type: none;
+  display: flex;
 }
 
-
-
-
-.smal-card-subtitle{
-    padding-top: 6px;
-    padding-left: 13px;
-    padding-bottom: 13px;
-    font:400 13px/19px 'Oxygen';
-    letter-spacing: 0;
-    color: rgba(122, 122, 122, 1);
-    background-color: #FFFFFF;
+.navigation__link {
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  padding: 10px 20px;
+  font: 400 11px/3px "Oxygen";
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
 }
 
+.smal-card__subtitle {
+  padding-top: 6px;
+  padding-left: 13px;
+  padding-bottom: 13px;
+  font: 400 13px/19px "Oxygen";
+  letter-spacing: 0;
+  color: rgba(122, 122, 122, 1);
+  background-color: #ffffff;
+}
