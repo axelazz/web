@@ -38,7 +38,7 @@ $posts = [
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Oxygen&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./style/main_style.css" />
+  <link rel="stylesheet" href="./style/main_style_st.css" />
   <title>Let's do it together.</title>
 </head>
 

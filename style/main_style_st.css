@@ -185,11 +185,12 @@ main {
   color: rgba(255, 255, 255, 0.8);
   display: block;
   padding: 4px 9px 5px;
-  font: 400 12px/26px "Oxygen";
+  font: 400 12px/26px "Oxygen"; 
   letter-spacing: 0;
   border-radius: 2px;
   text-transform: uppercase;
 }
+
 .button_The_road_ahead{
   background-color: #a872b7;
   color: rgba(255, 255, 255, 0.8);
