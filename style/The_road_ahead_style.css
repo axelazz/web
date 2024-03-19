@@ -1,7 +1,12 @@
 
-body{
-    margin: 0px auto;
-}
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    border: 0;
+  }
 
 header{
     max-height: 74px;
@@ -45,8 +50,8 @@ header{
 
 
 .main-photo{
-    background-size: cover;
-    width: 100%;
+    background-size: cover; 
+    width: 100%; 
 }
 
 .main-container{
@@ -91,8 +96,8 @@ header{
 
 
 footer{
-    
-    background-image: url('./img/footer.png');
+    background-image: url(../img/footer.png);
+    background-color: aqua;
     background-size: cover;
     max-width: 100%;
 }

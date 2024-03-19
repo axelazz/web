@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Oxygen&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/The_road_ahead_style.css">
     <title>lab1</title>
 
 </head>
@@ -16,7 +16,7 @@
         <div class="container">
 
             <div class="esc">
-                <img  src="img/Escape..svg"  alt=""/>  
+                <img  src="../img/logo-escape.svg"  alt=""/>  
             </div>       
             <div class="navigation">
                 <ul class="list-style">
@@ -109,7 +109,6 @@
 
     <footer>
         <div class="footer-container">
-
             <div class="footer-esc">Escape.</div>       
             <nav class="footer-navigation">
                 <ul class="footer-list-style">

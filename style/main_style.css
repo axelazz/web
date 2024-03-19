@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  background-image: url(img/main-background.png);
+  background-image: url(../img/main-background.png);
   background-size: cover;
   padding-bottom: 120px;
 }
@@ -157,7 +157,8 @@ main {
 }
 
 .big-card {
-  background-image: url(img/main-rightcard.png);
+  position: relative;
+  /* height: 280px; */
   background-size: cover;
   background-repeat: no-repeat;
   padding-right: 20px;
@@ -166,49 +167,40 @@ main {
   padding-bottom: 12px;
 }
 
-.big-card__link {
-  background-image: url(img/main-leftcard.png);
-  /* background-size: 480px 280px; */
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 12px;
+.img-backgroung_The_road_ahead{
+  background-image: url(../img/main-leftcard.png);
+}
+.img-backgroung_From_Top_Down{
+  background-image: url(../img/main-rightcard.png);
 }
 
-.left-card__button {
+
+
+.card-button{
   margin: 0;
-  width: 108px;
-  height: 26px;
-  font: 400 12px/26px "Oxygen";
-  letter-spacing: 0;
-  text-align: left;
-  background-color: #a872b7;
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  justify-content: space-between;
-  border-radius: 2px;
-  text-transform: uppercase;
-}
-.right-card__button {
-  margin: 0;
-  width: 87px;
-  height: 26px;
-  font: 400 12px/26px "Oxygen";
-  letter-spacing: 0;
-  text-align: left;
+  position: absolute;
+  top: 20px;
+  left: 20px;
   background: rgba(221, 120, 63, 1);
   color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  justify-content: space-between;
+  display: block;
+  padding: 4px 9px 5px;
+  font: 400 12px/26px "Oxygen";
+  letter-spacing: 0;
   border-radius: 2px;
   text-transform: uppercase;
+}
+.button_The_road_ahead{
+  background-color: #a872b7;
+  color: rgba(255, 255, 255, 0.8);
+}
+.button_From_Top_Down{
+  background: rgba(221, 120, 63, 1);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .big-card__title {
-  padding-top: 110px;
-  font: 400 27px/30px "Lora";
+  font: 400 27px/50px "Lora";
   letter-spacing: 0;
   text-align: left;
   color: rgba(255, 255, 255, 1);
@@ -349,7 +341,7 @@ main {
 
 footer {
   margin: 0;
-  background-image: url(img/footer.png);
+  background-image: url(../img/footer.png);
   background-color: rgba(35, 47, 56, 0.5);
   background-blend-mode: multiply;
   height: 89px;
