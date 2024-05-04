@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/field.png);
+    background-size: cover;
+    /* width: 1440px;
+    height: 800px; */
+}
+* {
+    border: 0;
+  }
+  
+header {
+    width: 1440px;
+    height: 74px;
+}
+main {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.logo {
+    margin: 0px 0px 0px 230px;
+}
+
+.login_window {
+    border-radius: 5px;
+    margin: 120px 230px 120px 0px;
+    background-color: white;
+    width: 480px;
+    height: 560px;
+}
+
+h1 {
+    margin: 0px;
+    padding: 56px 0px 0px 40px;
+    font-family: 'Lora';
+    font-size: 34px;
+    font-weight: 400;
+    text-align: left;
+
+
+}
+
+.input-wrapper {
+    padding-top: 10px;
+    padding-left: 45px;
+}
+.block-name{
+
+    padding-top: 40px;
+    font-family: "Oxygen";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #7A7A7A;
+}
+
+.block-edit{
+    border: 0;
+    padding: 8px 4px;
+    width: 400px;
+    height: 30px;
+}
+
+.underline{
+    width: 400px;
+    height: 1px;
+    background-color: #EAEAEA;
+
+}
+
+
+.button-login {
+    padding-top: 40px;
+}
+
+.author-login {
+    padding: 12px 24px 12px 24px;
+    gap: 10px;
+    border-radius: 3px;
+    opacity: 0px;
+    background-color: #DD783F;
+    font-family: "Oxygen";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #FFFFFF;
+}

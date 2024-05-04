@@ -1,31 +1,31 @@
 <?php
-$posts = [
- [
-   'title' => 'The Road Ahead',
-   'subtitle' => 'The road ahead might be paved - it might not be.',
-   'img_modifier' => 'img/mat-avatar.svg',
-   'author' => 'Mat Vogels',
-   'date' => 'September 25, 2015',
-   'button_text' => 'Photography',
-   'img-back' => 'img-backgroung_The_road_ahead',
-   'button_color' => 'button_The_road_ahead',
-
-
-   
-   // другие свойства этого поста
- ],
- [
-   'title' => 'From Top Down',
-   'subtitle' => 'Once a year, go someplace you’ve never been before.',
-   'img_modifier' => 'img/Will-avatar.svg',
-   'author' => 'William Wong',
-   'date' => 'September 25, 2015',
-   'button_text' => 'Adventure',
-   'img-back' => 'img-backgroung_From_Top_Down',
-   'button_color' => 'button_From_Top_Down',
-   
- ],
-];
+  const HOST = 'localhost';
+  const USERNAME = 'root';
+  const PASSWORD = '';
+  const DATABASE = 'blog';
+  function createDBConnection(): mysqli {
+    $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+    return $conn;
+  }
+  
+  function closeDBConnection(mysqli $conn): void {
+    $conn->close();
+  }
+  $conn = createDBConnection();
+  try {
+    $sql = "SELECT * FROM posts";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+      $posts = $result->fetch_all(MYSQLI_ASSOC);
+    }
+  }
+  catch(Exception $errror) {
+    echo $errror->getMessage();
+  }
+  closeDBConnection($conn)
 ?>
 
 
@@ -76,147 +76,38 @@ $posts = [
     </div>
   </div>
   <main>
-    <h1 class="main-title">Featured Posts</h1>
-    <div class="title-underline"></div>
-    <div class="main-content">
-      <ul class="main-cardlist">
-        <?php
-        foreach ($posts as $post) {
-          include 'featured_posts.php';
-        }
-        ?>
+    <div class="main-cards">
+        <div class="main-cards__conteiner1">
+            <div class="feature-posts__conteiner1__title">
+                <p>Featured Posts</p>
+                <hr class="line">
+            </div>
+            <nav class="feature-posts-cards">
+                <?php 
+                    foreach ($posts as $post) {
+                        if($post['featured'] == 1){
+                            include 'featured_posts.php';
+                        }        
+                    }
+                ?>
 
-      </ul>
-    </div>
-    <h1 class="main-title">Most Recent</h1>
-    <div class="title-underline"></div>
-    <div class="add-content">
-      <div class="small-card">
-        <div class="card-image">
-          <img src="/img/card-balloon.jpg" alt="balloon-image" />
+            </nav>
         </div>
-        <div class="small-card__title">Still Standing Tall</div>
-        <div class="small-card__subtitle">
-          Life begins at the end of your comfort zone.
-        </div>
-        <div class="small-title__underline"></div>
-        <div class="small-card__author">
-          <div class="small-card__list">
-            <div class="small-card__author__image">
-              <img src="img/Will-avatar.svg" alt="avatar" />
+        <div class="main-cards__conteiner2">
+            <div class="most-recent_conteiner2__title">
+                <p>Most Recent</p>
+                <hr class="line">
             </div>
-            <div class="small-card__footer">
-              <div class="small-card__name">William Wong</div>
-              <div class="small-card__date">9/25/2015</div>
-            </div>
-          </div>
+            <nav class="most-recent_cards">
+                <?php
+                    foreach ($posts as $post) {
+                        if($post['featured'] != 1){
+                            include 'recent.php';
+                        }        
+                    }
+                ?>
+            </nav>
         </div>
-      </div>
-      <div class="small-card">
-        <div class="card-image">
-          <img src="/img/card-bridge.png" alt="bridge-image" />
-        </div>
-        <div class="small-card__title">Sunny Side Up</div>
-        <div class="smal-card__subtitle">
-          No place is ever as bad as they tell you it’s going to be.
-        </div>
-        <div class="small-title__underline"></div>
-        <div class="small-card__author">
-          <div class="small-card__list">
-            <div class="small-card__author__image">
-              <img src="img/mat-avatar.svg" alt="avatar" />
-            </div>
-            <div class="small-card__footer">
-              <div class="small-card__name">Mat Vogels</div>
-              <div class="small-card__date">9/25/2015</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="small-card">
-        <div class="card-image">
-          <img src="/img/card-sunrise.png" alt="sunrise-image" />
-        </div>
-        <div class="small-card__title">Water Falls</div>
-        <div class="smal-card__subtitle">
-          We travel not to escape life, but for life not to escape us.
-        </div>
-        <div class="small-title__underline"></div>
-        <div class="small-card__author">
-          <div class="small-card__list">
-            <div class="small-card__author__image">
-              <img src="img/mat-avatar.svg" alt="avatar" />
-            </div>
-            <div class="small-card__footer">
-              <div class="small-card__name">Mat Vogels</div>
-              <div class="small-card__date">9/25/2015</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="small-card">
-        <div class="card-image">
-          <img src="/img/card-sea.png" alt="sea-image" />
-        </div>
-        <div class="small-card__title">Through the Mist</div>
-        <div class="smal-card__subtitle">
-          Travel makes you see what a tiny place you occupy in the world.
-        </div>
-        <div class="small-title__underline"></div>
-        <div class="small-card__author">
-          <div class="small-card__list">
-            <div class="small-card__author__image">
-              <img src="img/Will-avatar.svg" alt="avatar" />
-            </div>
-            <div class="small-card__footer">
-              <div class="small-card__name">William Wong</div>
-              <div class="small-card__date">9/25/2015</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="small-card">
-        <div class="card-image">
-          <img src="/img/card-funicular.png" alt="funicular-image" />
-        </div>
-        <div class="small-card__title">Awaken Early</div>
-        <div class="small-card__subtitle">
-          Not all those who wander are lost.
-        </div>
-        <div class="small-title__underline"></div>
-        <div class="small-card__author">
-          <div class="small-card__list">
-            <div class="small-card__author__image">
-              <img src="img/mat-avatar.svg" alt="avatar" />
-            </div>
-            <div class="small-card__footer">
-              <div class="small-card__name">Mat Vogels</div>
-              <div class="small-card__date">9/25/2015</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="small-card">
-        <div class="card-image">
-          <img src="/img/card-waterfall.png" alt="waterfall-image" />
-        </div>
-        <div class="small-card__title">Try it Always</div>
-        <div class="smal-card__subtitle">
-          The world is a book, and those who do not travel read only one page.
-        </div>
-        <div class="small-title__underline"></div>
-        <div class="small-card__author">
-          <div class="small-card__list">
-            <div class="small-card__author__image">
-              <img src="img/mat-avatar.svg" alt="avatar" />
-            </div>
-            <div class="small-card__footer">
-              <div class="small-card__name">Mat Vogels</div>
-              <div class="small-card__date">9/25/2015</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </main>
   <footer>

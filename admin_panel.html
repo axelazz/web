@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Oxygen&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style/admin_panel.css" />
+    <title>admin</title>
+</head>
+<body>
+    <header>
+        <div class="header-wrapper">
+          <div class="header-logo">
+            <img src="img/Logo Inversed.svg" alt="logo escape" />
+          </div>
+          <div class="container-logout">
+            <img class="user-avatar" src="img/user-avatar.svg" alt="avatar" />
+            <img class="logout" src="img/logout.svg" alt="logout" />
+          </div>
+        </div>
+    </header>
+    <main>
+        <div class="newpost-wrapper">
+            <div class="newpost-container">
+                <h1>New Post</h1>
+                <div class="newpost-subtitle">Fill out the form bellow and publish your article</div>
+            </div>
+            <div class="button-publish">
+                <button class="publish-post">Publish</button>
+
+            </div>
+        </div>
+        <div class="main-information">
+            <h2>Main Information</h2>
+            <div class="admin-panel">
+                <div class="post-edit">
+                    <div class="block-name">Title</div>
+                    <input class="input_field" type="text" placeholder="New Post" />
+                    <div class="underline"></div>
+                    <div class="block-name">Short description</div>
+                    <input class="input_field" type="text" placeholder="Please, enter any description" />
+                    <div class="underline"></div>
+                    <div class="block-name">Author name</div>
+                    <input class="input_field" type="text" placeholder="" />
+                    <div class="underline-author"></div>
+                    <div class="block-name">Author Photo</div>
+                    <div class="input-image_field">
+                        <div class="camera-wrapper">
+                            <img class="input-author-avatar" src="img/camera.svg" alt="avatar" />
+                        </div>
+                        <div class="upload-image">Upload</div>
+                    </div>
+                    <div class="second_field">
+                        <div class="block-name">Publish Date</div>
+                        <input type="date" class="input_field" id="publish_date" value="2024-04-18" name="publish_date" />
+                    </div>
+                    <div class="underline"></div>
+                    <div class="block-name">Hero Image</div>
+                    <div class="hero-image_field">
+                        <div class="hero_field_wrapper">
+                            <img class="camera_icon" src="img/camera.svg" alt="avatar" />
+                            <div class="upload-hero-image">Upload</div>
+                        </div>
+                        <div class="type-image">Size up to 10mb. Format: png, jpeg, gif.</div>
+                        
+                    </div>
+                    <div class="block-name">Hero Image</div>
+                    <div class="preview_field">
+                        <div class="preview_field_wrapper">
+                            <img class="preview_camera_icon" src="img/camera.svg" alt="avatar" />
+                            <div class="preview-upload-hero-image">Upload</div>
+                        </div>
+                        <div class="type-image">Size up to 5mb. Format: png, jpeg, gif.</div>
+                        
+                    </div>
+                </div>
+                <div class="post-preview">
+                    <div class="block-name">Article preview</div>
+                    <div class="post-preview-wrapper">
+                        <div class="main-border-post">
+                            <div class="middle-border-post">
+                                <div class="ellipsis">
+                                    <img class="dots" src="img/Ellipse 3.png" alt="dot" />
+                                    <img class="dots" src="img/Ellipse 3.png" alt="dot" />
+                                    <img class="dots" src="img/Ellipse 3.png" alt="dot" />
+                                </div>
+                                <div class="middle-border-underline"></div>
+                                <div class="preview-border-post">
+                                    <div class="preview-title">New Post</div>
+                                    <div class="preview-subtitle">Please, enter any description</div>
+                                    <div class="input-post-preview">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </main> 
+    
+</body>
+</html>
