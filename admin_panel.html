@@ -37,13 +37,13 @@
             <div class="admin-panel">
                 <div class="post-edit">
                     <div class="block-name">Title</div>
-                    <input class="input_field" type="text" placeholder="New Post" />
+                    <input class="input_field" id="title" type="text" value="" placeholder="New Post" />
                     <div class="underline"></div>
                     <div class="block-name">Short description</div>
-                    <input class="input_field" type="text" placeholder="Please, enter any description" />
+                    <input class="input_field" id="short-description" type="text" placeholder="Please, enter any description" />
                     <div class="underline"></div>
                     <div class="block-name">Author name</div>
-                    <input class="input_field" type="text" placeholder="" />
+                    <input class="input_field" id="author" type="text" placeholder="" />
                     <div class="underline-author"></div>
                     <div class="block-name">Author Photo</div>
                     <div class="input-image_field">
@@ -97,11 +97,48 @@
                             </div>
                         </div>        
                     </div>
-                    
+                    <div class="post-preview-name">Post card preview</div>
+                    <div class="post-wrapper">
+                        <div class="main-border-post-preview">
+                            <div class="card-conteiner">
+                                <div class="card-image">
+                                    <!-- <img class="dots" src="img/card-funicular.png" alt=""/> -->
+                                </div>
+                                <div class="card-line"></div>
+                                <div class="card-title">
+                                    <p class="card-title__name">New Post</p>
+                                    <p class="card-title__description">Please enter any description</p>
+                                </div>
+                                <div class="card-line"></div>
+                                <div class="card-footer-conteiner">
+                                    <img class="card-img" src="img/user-avatar.svg" alt=""/>
+                                    <p class="card-name"> Enter author name</p>
+                                    <p class="card-date date1">4/18/2018</p>
+                                </div>
+                                <div class="card-line"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="footer-wrapper">
+                <div class="footer-title">Content</div>
+                <div class="content-wrapper">
+                    <div class="block-name">Post content (plain text)</div>
+                    <div class="content_field">
+                        <input class="input_content-field" type="text" id="content" placeholder="Type anything you want ..." />
+                    </div>
                 </div>
             </div>
         </div>
     </main> 
     
 </body>
+<img class="logout" src="img/trash-red.svg" alt="logout" />
+<script src="functional-panel.js" async></script>
+
 </html>
