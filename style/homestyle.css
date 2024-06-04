@@ -209,7 +209,7 @@ a {
 }
 
 .footer-blure {
-  height: 120px;
+  height: 90px;
   width: 100%;
   background-color: #232F3899;
   position: absolute;
@@ -692,6 +692,7 @@ a {
   }
 
   .footer-blure {
+    height: 120px;
     padding-bottom: 30px;
   }
 

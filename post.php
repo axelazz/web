@@ -58,6 +58,10 @@ function getAndPrintPostsFromDB1(mysqli $conn): void
             <div>
                 <div class="title-logo">Escape.</div>
             </div>
+            <input id="burgertoggle" type="checkbox" class="burgermenu">
+                <label for="burgertoggle">
+                    <span></span>
+                </label>
             <nav class="top-list head-edit">
                 <ul>
                     <li>
@@ -97,10 +101,10 @@ function getAndPrintPostsFromDB1(mysqli $conn): void
             </div>
             <div class="footer-blure"></div>
             <div class="footer-conteiner">
-                <div class="title-escape">
+                <div class="footer-title-escape">
                     <img src="http://localhost:8001/img/whitelogo.svg" alt="Escape.">
                 </div>
-                <nav class="top-list foot-edit">
+                <nav class="bottom-list foot-edit">
                     <ul class="top-list">
                         <li>
                             <a href="#!">Home</a>

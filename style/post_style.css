@@ -26,13 +26,14 @@ header {
     font-weight: 400;
     line-height: 26px;
     text-align: left;
+    padding-right: 500px;
 
 }
 
 .header-conteiner {
     width: 940px;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     padding-top: 17px;
 }
@@ -84,11 +85,17 @@ header {
     background-repeat: no-repeat;  
     position: relative;
 }
-
+.footer-title-escape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-repeat: no-repeat;
+    
+}
 .footer-conteiner {
     width: 960px;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding-top: 23px;
     padding-bottom: 18px;
     position: absolute;
@@ -103,6 +110,26 @@ header {
     bottom: 0;
 }
 
+.bottom-list ul {
+    padding-left: 600px;
+    display: flex;
+}
+
+.bottom-list ul li {
+    cursor: pointer;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: 'Oxygen';
+    font-size: 11px;
+    font-weight: 400;
+    color: #FFFFFF;
+    opacity: 0.6;
+}
+.foot-edit li{
+    margin-right: 20px;
+}
 .log-title {
     height: 47px;
     padding-top: 82px;
@@ -234,3 +261,202 @@ header {
 .body-conteiner img {
     width: 100%;
 }
+label {
+    display: none;
+}
+
+.burgermenu {
+    display: none;
+}
+
+
+@media (max-width: 950px) {
+    .title-logo{
+        padding-left: 80px;
+        padding-right: 360px;
+      }
+}
+
+@media (max-width: 884px) {
+    .title-logo{
+        padding-left: 120px;
+        padding-right: 300px;
+        
+      }
+}
+
+
+@media (max-width: 800px) {
+    .title-logo{
+        padding-left: 120px;
+        padding-right: 250px;
+      }
+}
+
+@media (max-width: 700px) {
+    .title-logo{
+        padding-left: 160px;
+      }
+
+    
+}
+
+@media (max-width: 600px) {
+    label {
+      margin-left: 40px;
+      position: relative;
+      height: 25px;
+      width: 40px;
+      display: block;
+    }
+    label::after, label::before, label span {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #101315;
+      transition: .3s;
+      opacity: 0.8;
+    }
+  
+    label::before {
+      content: "";
+      top: 0;
+    }
+    label::after {
+      content: "";
+      bottom: 0;
+    }
+    label span {
+      top: 11px;
+    }
+  
+    #burgertoggle:checked ~ label::after {
+      transform: rotate(45deg);
+      bottom: 10px;
+    }
+  
+    #burgertoggle:checked ~ label::before{
+      transform: rotate(-45deg);
+      top: 12px;
+    }
+  
+    #burgertoggle:checked ~ label span{
+      transform: rotate(-45deg);
+      top: 12px;
+    }
+  
+    .top-list ul  {
+      position: fixed;
+      left:0;
+      right: 0;
+      background-color: #101315;
+      padding-top: 100px;
+      z-index: -1;
+      flex-direction: column;
+      text-align: center;
+      top: -100vh;
+      bottom: 100vh;
+    }
+  
+    #burgertoggle:checked ~ .top-list ul li{
+      top: 50px;
+      transition: .3s;
+  
+    }
+    
+  }
+
+  @media (max-width: 600px) {
+    .title-logo{
+        padding-left: 260px;
+      }
+
+    
+}
+
+@media (max-width: 1024px) {
+    .footer-title-escape {
+      padding-left: 50px;
+    }
+    .bottom-list ul {
+      padding-left: 550px;
+      display: flex;
+    }
+  }
+  
+  
+  @media (max-width: 950px) {
+    .bottom-list ul {
+      padding-left: 500px;
+      display: flex;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .footer-title-escape {
+      padding-left: 100px;
+    }
+    .bottom-list ul {
+      padding-left: 450px;
+      display: flex;
+    }
+  }
+  
+  
+  @media (max-width: 900px) {
+    .footer-title-escape {
+      padding-left: 130px;
+    }
+    .bottom-list ul {
+      padding-left: 350px;
+      display: flex;
+    }
+  }
+  
+  @media (max-width: 706px) {
+    .footer-title-escape {
+      padding-left: 160px;
+    }
+    .bottom-list ul {
+      padding-left: 270px;
+      display: flex;
+    }
+  }
+  
+  
+  @media (max-width: 480px) {
+    .footer-title-escape {
+      padding-left: 270px;
+    }
+    .bottom-list ul {
+      flex-direction: column;
+      padding-left: 280px;
+      padding-top: 50px;
+    }
+    .bottom-list ul li {
+      padding-bottom: 10px;
+    }
+  
+    .footer-blure {
+      height: 120px;
+      padding-bottom: 30px;
+    }
+  
+    
+  }
+  
+  
+  
+  @media (max-width: 481px) {
+    .input-block {
+      width: 300px;
+    }
+  
+    .submit-button{
+      width: 110px;
+      
+    }
+    .log-input-conteiner {
+      padding-left: 90px;
+    }
+  }
