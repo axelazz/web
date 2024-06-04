@@ -1,38 +1,58 @@
 <?php
 $method = $_SERVER['REQUEST_METHOD'];
-echo "$method\n";
+echo $method;
 
-if ($method != "POST") {
-    echo "Неправильный запрос";
-} else {
-    $dataAsJson = file_get_contents("php://input");
-    $dataAsArray = json_decode($dataAsJson, true);
-    saveImage($dataAsArray['image']);
-}
+const HOST = 'localhost';
+const USERNAME = 'root';
+const PASSWORD = '';
+const DATABASE = 'blog';
 
-function saveImage(string $imageBase64): void
+function createDBConnection(): mysqli
 {
-    $imageBase64Array = explode(';base64,', $imageBase64);
-    $imgExtention = str_replace('data:image/', '', $imageBase64Array[0]);
-    $imageDecoded = base64_decode($imageBase64Array[1]);
-    saveFile("img/image.{$imgExtention}", $imageDecoded);
+  $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+
+  return $conn;
 }
 
-function saveFile(string $file, string $data): void
+function closeDBConnection(mysqli $conn): void
 {
-    $myFile = fopen($file, 'w');
-    if ($myFile) {
-        $result = fwrite($myFile, $data);
-        if ($result) {
-            echo 'Данные успешно сохранены в файл';
-        } else {
-            echo 'Произошла ошибка при сохранении данных в файл';
-        }
-        fclose($myFile);
-    } else {
-        echo 'Произошла ошибка при открытии файла';
-    }
+  $conn->close();
 }
 
-?>
+function getPostJson(): ?string
+{
+  $dataAsJson = file_get_contents("php://input");
+  if (!$dataAsJson) {
+    echo 'Не удалось считать данные!';
+    return null;
+  }
+  return $dataAsJson;
+}
 
+function getPostJsonAsArray(string $dataAsJson): array
+{
+  $dataAsArray = json_decode($dataAsJson, true);
+  if (!$dataAsArray) {
+    echo 'Не удалось преобразовать JSON в массив!';
+    return [];
+  }
+  return $dataAsArray;
+}
+
+$dataAsJson = getPostJson();
+
+if ($method != 'POST') {
+  echo "Вы не использовали Post";
+  return;
+}
+
+if ($dataAsJson) {
+  $dataAsArray = getPostJsonAsArray($dataAsJson);
+  $publishDate = strtotime($dataAsArray['publish_date']);
+  $conn = createDBConnection();
+  $sql = "INSERT INTO post (title, subtitle, content, author, author_url, publish_date, image_url, featured, card_url) VALUES ('{$dataAsArray['title']}', '{$dataAsArray['subtitle']}', '{$dataAsArray['content']}', '{$dataAsArray['author']}', '{$dataAsArray['author_url']}', '$publishDate', '{$dataAsArray['image_url']}', '{$dataAsArray['featured']}', '{$dataAsArray['card_url']}')";
+  $result = $conn->query($sql);
+}

@@ -1,4 +1,4 @@
-CREATE TABLE post (
+CREATE TABLE `post` (
 	`id` INT(10) NOT NULL AUTO_INCREMENT,
 	`title` VARCHAR(255) NOT NULL DEFAULT '0' COLLATE 'utf8mb4_0900_ai_ci',
 	`subtitle` VARCHAR(255) NOT NULL DEFAULT '0' COLLATE 'utf8mb4_0900_ai_ci',
@@ -6,7 +6,8 @@ CREATE TABLE post (
 	`author` VARCHAR(255) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
 	`author_url` VARCHAR(255) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
 	`publish_date` VARCHAR(255) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
-	`image_url` VARCHAR(255) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
+	`imageBack` VARCHAR(255) NOT NULL DEFAULT '' COLLATE 'utf8mb4_0900_ai_ci',
+	`imagePost` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`featured` TINYINT(1) NOT NULL DEFAULT '0',
 	PRIMARY KEY (`id`) USING BTREE
 )

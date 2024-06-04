@@ -1,282 +1,465 @@
-document.addEventListener("DOMContentLoaded", function () {
-    function ClearButtonOne() {
-      previewAvatar.style.display = "none";
-      avatarPrev.src = "img/background-post.jpg";
-      nonePrev.style.display = "block";
-      clearButtonOne.style.display = "none";
-      uploadNewButtonOne.style.display = "none";
-      uploadButton.style.display = "block";
-    }
-  
-    function ClearButtonTwo() {
-      previewHero.style.display = "none";
-      previewHeroMinOne.src = "img/background-post.jpg";
-      clearButtonTwo.style.display = "none";
-      uploadNewButtonTwo.style.display = "none";
-      imgSizeOne.style.display = "block";
-      heroPrevNone.style.display = "block";
-    }
-  
-    function ClearButtonThree() {
-      previewHeroMin.style.display = "none";
-      previewHeroMinTwo.src = "img/background-post.jpg";
-      clearButtonThree.style.display = "none";
-      uploadNewButtonThree.style.display = "none";
-      imgSizeTwo.style.display = "block";
-      heroImageMinNone.style.display = "block";
-    }
-  
-    function uploadImage() {
-      if (this.files && this.files.length) {
-        previewAvatar.src = window.URL.createObjectURL(this.files[0]);
-        avatarPrev.src = window.URL.createObjectURL(this.files[0]);
-        avatarPrev.style.display = "block";
-        previewAvatar.style.display = "block";
-        nonePrev.style.display = "none";
-        clearButtonOne.style.display = "inline-block";
-        uploadButton.style.display = "none";
-        uploadNewButtonOne.style.display = "block";
+window.document.addEventListener('DOMContentLoaded', () => {
+
+})
+
+const titleInput = document.getElementById("title");
+var descriptorInput = document.getElementById("descriptor");
+var authNameInput = document.getElementById("authName");
+var textarea = document.getElementById("textareaInput");
+var errorMessageElement = document.getElementById("errorMessage");
+var errorMessageElement1 = document.getElementById("errorMessage1");
+var errorMessageElement2 = document.getElementById("errorMessage2");
+var errorMessageElement3 = document.getElementById("errorMessage3");
+
+function handleTitleInput() {
+  const title = titleInput.value;
+  title = title.substring(0, 15);
+  console.log("Title:", title);
+  changeTitle(title);
+  changeCardTitle(title);
+}
+
+function handleDescriptorInput() {
+  var description = descriptorInput.value;
+  description = description.substring(0, 40);
+  console.log("Description:", description);
+  changeSubTitle(description);
+  changeCardSubTitle(description);
+}
+
+function handleAuthNameInput() {
+  var authorName = authNameInput.value;
+  authorName = authorName.substring(0, 15);
+  console.log("Author name:", authorName);
+  CardName(authorName);
+}
+
+titleInput.addEventListener("input", handleTitleInput);
+titleInput.placeholder = "Please, enter New Post";
+
+descriptorInput.addEventListener("input", handleDescriptorInput);
+descriptorInput.placeholder = "Please, enter any description";
+
+authNameInput.addEventListener("input", handleAuthNameInput);
+authNameInput.placeholder = "Please, enter Author name";
+
+// __________________________
+
+const InputAuthorImg = document.getElementById("InputAuthorImg");
+const uploadButton = document.getElementById("uploadButton");
+const deleteButton = document.getElementById("deleteButton");
+const changeButton = document.getElementById("changeButton");
+const fileInput = document.getElementById("fileInput");
+let imageAuthor;
+InputAuthorImg.addEventListener("click", () => {
+  fileInput.click();
+});
+
+fileInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    const imageData = reader.result;
+    imageAuthor = imageData;
+    InputAuthorImg.style.backgroundImage = `url(${imageData})`;
+    changeCardAuthor(imageData);
+    InputAuthorImg.innerHTML = "";
+    InputAuthorImg.style.borderStyle = "none";
+    uploadButton.innerHTML = "";
+    deleteButton.style.display = "flex";
+    changeButton.style.display = "flex";
+  };
+
+  reader.readAsDataURL(file);
+});
+
+deleteButton.addEventListener("click", () => {
+  InputAuthorImg.style.backgroundImage = "";
+  InputAuthorImg.innerHTML = `<img src="img/camera.svg" alt="InputUploadIcon" class="input-icon1" />`;
+  deleteButton.style.display = "none";
+  changeButton.style.display = "none";
+  uploadButton.innerHTML = "<p>Upload</p>";
+  InputAuthorImg.style.borderStyle = "dashed";
+  changeCardAuthor("");
+});
+
+changeButton.addEventListener("click", () => {
+  fileInput.value = "";
+  fileInput.click();
+});
+
+// ___________________________
+const InputBackImg = document.getElementById("InputBackImg");
+const deleteButton1 = document.getElementById("deleteButton1");
+const changeButton1 = document.getElementById("changeButton1");
+const config1 = document.getElementById("config1");
+const editBoxBack = document.getElementById("editBoxBack");
+const fileInputBack = document.getElementById("fileInputBack");
+let imageBack;
+editBoxBack.style.height = "0";
+
+InputBackImg.addEventListener("click", () => {
+  fileInputBack.click();
+});
+
+fileInputBack.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    editBoxBack.style.height = "34px";
+    const imageData = reader.result;
+    imageBack = imageData;
+    InputBackImg.style.backgroundImage = `url(${imageData})`;
+    changeBackground(imageData);
+    InputBackImg.innerHTML = "";
+    InputBackImg.style.borderStyle = "none";
+    deleteButton1.style.display = "flex";
+    changeButton1.style.display = "flex";
+    config1.innerHTML = "";
+  };
+
+  reader.readAsDataURL(file);
+});
+
+deleteButton1.addEventListener("click", () => {
+  InputBackImg.style.backgroundImage = "";
+  InputBackImg.innerHTML = `
+    <div class="input-image_button">
+        <img src="img/camera_upload.svg" alt="InputUploadIcon" class="input-icon1" />
+    </div>`;
+  deleteButton1.style.display = "none";
+  changeButton1.style.display = "none";
+  InputBackImg.style.borderStyle = "dashed";
+  config1.innerHTML = `
+  <div class="input-title_text">
+      <p>Size up to 10mb. Format: png, jpeg, gif.</p>
+  </div>`;
+  editBoxBack.style.height = "0";
+  changeBackground("");
+});
+
+changeButton1.addEventListener("click", () => {
+  fileInputBack.value = "";
+  fileInputBack.click();
+});
+
+// _______________________________
+const InputPostImg = document.getElementById("InputPostImg");
+const deleteButton2 = document.getElementById("deleteButton2");
+const changeButton2 = document.getElementById("changeButton2");
+const config2 = document.getElementById("config2");
+const editBoxBack1 = document.getElementById("editBoxBack1");
+const fileInputPost = document.getElementById("fileInputPost");
+editBoxBack1.style.height = "0";
+let imagePost;
+
+InputPostImg.addEventListener("click", () => {
+  fileInputPost.click();
+});
+
+fileInputPost.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    editBoxBack1.style.height = "34px";
+    const imageData = reader.result;
+    imagePost = imageData;
+    InputPostImg.style.backgroundImage = `url(${imageData})`;
+    changeBackgroundSmall(imageData);
+    InputPostImg.innerHTML = "";
+    InputPostImg.style.borderStyle = "none";
+    deleteButton2.style.display = "flex";
+    changeButton2.style.display = "flex";
+    config2.innerHTML = "";
+  };
+
+  reader.readAsDataURL(file);
+});
+
+deleteButton2.addEventListener("click", () => {
+  InputPostImg.style.backgroundImage = "";
+  InputPostImg.innerHTML = `
+    <div class="input-image_button2">
+      <img src="img/camera_upload.svg" alt="InputUploadIcon" class="input-icon1" />
+    </div>`;
+  deleteButton2.style.display = "none";
+  changeButton2.style.display = "none";
+  InputPostImg.style.borderStyle = "dashed";
+  config2.innerHTML = `
+    <div class="input-title_text">
+      <p>Size up to 10mb. Format: png, jpeg, gif.</p>
+    </div>`;
+  editBoxBack1.style.height = "0";
+  changeBackgroundSmall("");
+});
+
+changeButton2.addEventListener("click", () => {
+  fileInputPost.value = "";
+  fileInputPost.click();
+});
+
+var sampleBigTitle = document.getElementById("sampleBigTitle");
+sampleBigTitle.textContent = "New Post";
+function changeTitle(text) {
+  sampleBigTitle.innerText = text;
+}
+
+var sampleBigSubTitle = document.getElementById("sampleBigSubTitle");
+sampleBigSubTitle.textContent = "Please, enter any description";
+function changeSubTitle(text) {
+  sampleBigSubTitle.innerText = text;
+}
+
+function changeCardAuthor(img) {
+  var CardImageInput = document.getElementById("CardImageInput");
+  CardImageInput.style.backgroundImage = "url(" + img + ")";
+}
+
+function changeBackground(img) {
+  var sampleBigImage = document.getElementById("sampleBigImage");
+  sampleBigImage.style.backgroundImage = "url(" + img + ")";
+}
+
+function changeBackgroundSmall(img) {
+  var sampleBigImage = document.getElementById("sampleSmallImage");
+  sampleBigImage.style.backgroundImage = "url(" + img + ")";
+}
+
+var cardTitle = document.getElementById("cardTitle");
+cardTitle.textContent = "New Post";
+function changeCardTitle(text) {
+  cardTitle.innerText = text;
+}
+
+var cardSubTitle = document.getElementById("cardSubTitle");
+cardSubTitle.textContent = "Please, enter any description";
+function changeCardSubTitle(text) {
+  cardSubTitle.innerText = text;
+}
+
+var CardNameInput = document.getElementById("CardNameInput");
+CardNameInput.textContent = "Enter author name";
+function CardName(text) {
+  CardNameInput.innerText = text;
+}
+
+// ___________________________
+
+function validateTitle() {
+  var titleInput = document.getElementById("title");
+  var errorMessageElement = document.getElementById("errorMessage");
+
+  if (titleInput.value.trim() === "") {
+    errorMessageElement.textContent = "Title is required.";
+    titleInput.style.backgroundColor = "rgba(255, 255, 255, 1)";
+    titleInput.style.borderColor = "#E86961";
+    return false;
+  } else {
+    titleInput.style.borderColor = "black";
+    errorMessageElement.textContent = "";
+    titleInput.style.backgroundColor = "rgba(247, 247, 247, 1)";
+    return true;
+  }
+}
+
+function validateDescriptor() {
+  var descriptorInput = document.getElementById("descriptor");
+  var errorMessageElement1 = document.getElementById("errorMessage1");
+
+  if (descriptorInput.value.trim() === "") {
+    errorMessageElement1.textContent = "Description is required.";
+    descriptorInput.style.backgroundColor = "rgba(255, 255, 255, 1)";
+    descriptorInput.style.borderColor = "#E86961";
+    return false;
+  } else {
+    descriptorInput.style.borderColor = "black";
+    errorMessageElement1.textContent = "";
+    descriptorInput.style.backgroundColor = "rgba(247, 247, 247, 1)";
+    return true;
+  }
+}
+
+function validateAuthName() {
+  var authNameInput = document.getElementById("authName");
+  var errorMessageElement2 = document.getElementById("errorMessage2");
+
+  if (authNameInput.value.trim() === "") {
+    errorMessageElement2.textContent = "Author name is required.";
+    authNameInput.style.backgroundColor = "rgba(255, 255, 255, 1)";
+    authNameInput.style.borderColor = "#E86961";
+    return false;
+  } else {
+    authNameInput.style.borderColor = "black";
+    errorMessageElement2.textContent = "";
+    authNameInput.style.backgroundColor = "rgba(247, 247, 247, 1)";
+    return true;
+  }
+}
+
+let text;
+function validateTextarea() {
+  var textarea = document.getElementById("textareaInput");
+  var errorMessageElement3 = document.getElementById("errorMessage3");
+  text = textarea.value;
+  if (textarea.value.trim() === "") {
+    errorMessageElement3.textContent = "Correct format is “*****@***.**”";
+    textarea.style.borderColor = "#E86961";
+    return false;
+  } else {
+    textarea.style.borderColor = "black";
+    errorMessageElement3.textContent = "";
+    return true;
+  }
+}
+
+titleInput.addEventListener("input", function () {
+  if (titleInput.value.trim() !== "") {
+    errorMessageElement.style.color = "#999999";
+    titleInput.style.borderColor = "black";
+  }
+});
+
+descriptorInput.addEventListener("input", function () {
+  if (descriptorInput.value.trim() !== "") {
+    errorMessageElement1.style.color = "#999999";
+    descriptorInput.style.borderColor = "black";
+  }
+});
+
+
+authNameInput.addEventListener("input", function () {
+  if (authNameInput.value.trim() !== "") {
+    errorMessageElement2.style.color = "#999999";
+    authNameInput.style.borderColor = "black";
+  }
+});
+
+textarea.addEventListener("input", function () {
+  if (textarea.value.trim() !== "") {
+    errorMessageElement3.style.color = "#999999";
+    textarea.style.borderColor = "black";
+  }
+});
+
+let date;
+const inputDataDate = document.getElementById("dateAutor").value;
+function saveAndDisplayDate() {
+  var inputDate = document.getElementById("dateAutor").value;
+  var savedDate = new Date(inputDate);
+  var day = savedDate.getDate();
+  var month = savedDate.getMonth() + 1;
+  var year = savedDate.getFullYear() % 100;
+  var formattedDate = `${day}/${month}/${year}`;
+  date = formattedDate;
+  CardDate(formattedDate);
+}
+var CardDateInput = document.getElementById("CardDateInput");
+CardDateInput.textContent = "4/19/23";
+function CardDate(text) {
+  CardDateInput.innerText = text;
+}
+document.getElementById("dateAutor").addEventListener("change", function () {
+  saveAndDisplayDate();
+});
+
+function validateInputs() {
+  var isValidTitle = validateTitle();
+  var isValidDescriptor = validateDescriptor();
+  var isValidAuthName = validateAuthName();
+  var isValidTextarea = validateTextarea();
+
+  if (!isValidTitle) {
+    return "Title field is empty!";
+  }
+
+  if (!isValidDescriptor) {
+    return "Description field is empty!";
+  }
+
+  if (!isValidAuthName) {
+    return "Author name field is empty!";
+  }
+
+  if (!isValidTextarea) {
+    return "Textarea field is empty!";
+  }
+
+  if (!fileInput.files.length) {
+    return "Please upload an image!";
+  }
+
+  if (!fileInputBack.files.length) {
+    return "Please upload back an image!";
+  }
+
+  if (!fileInputPost.files.length) {
+    return "Please upload post an image!";
+  }
+
+  var inputDate = document.getElementById("dateAutor").value;
+  if (!inputDate) {
+    return "Please enter a valid date!";
+  }
+
+  return null;
+}
+
+function handleInput() {
+  var errorMessage = validateInputs();
+  var CheckErrorContainer = document.getElementById("CheckErrorContainer");
+
+  if (errorMessage) {
+    console.error(errorMessage);
+    CheckErrorContainer.innerHTML = `<div class="error-box_conteiner">
+                    <div class="error-box">
+                        <img src="img/alert-circle-red.svg" />
+                        <p>Whoops! Some fields need your attention :o</p>
+                    </div>
+                </div>`;
+  } else {
+    var title = document.getElementById("title").value;
+    var description = document.getElementById("descriptor").value;
+    var authorName = document.getElementById("authName").value;
+    CheckErrorContainer.innerHTML = `
+    <div class="error-box_conteiner1">
+                    <div class="error-box">
+                        <img src="img/check-circle-green.svg" />
+                        <p>Publish Complete!</p>
+                    </div>
+                </div>`;
+
+
+
+
+    const card_post = {
+      title: title,
+      subtitle: description,
+      content: text,
+      author: authorName,
+      author_url: imageAuthor,
+      publish_date: inputDataDate,
+      image_url: imageBack,
+      featured: 0,
+      card_url: imagePost,
+    };
+
+
+    // console.log(card_post);
+
+    fetch("http://localhost:8001/api.php", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(card_post),
+    }).then(function (response) {
+      if (!response.ok) {
+        throw new Error("Bad status code from server.");
       }
-    }
-  
-    function uploadHeroImage() {
-      if (this.files && this.files.length) {
-        previewHero.src = window.URL.createObjectURL(this.files[0]);
-        previewHeroMinOne.src = window.URL.createObjectURL(this.files[0]);
-        previewHeroMinOne.style.display = "block";
-        heroPrevNone.style.display = "none";
-        previewHero.style.display = "block";
-        imgSizeOne.style.display = "none";
-        uploadNewButtonTwo.style.display = "inline-block";
-        clearButtonTwo.style.display = "inline-block";
-      }
-    }
-  
-    function uploadHeroImageMin() {
-      if (this.files && this.files.length) {
-        previewHeroMin.src = window.URL.createObjectURL(this.files[0]);
-        previewHeroMinTwo.src = window.URL.createObjectURL(this.files[0]);
-        heroImageMinNone.style.display = "none";
-        previewHeroMin.style.display = "block";
-        imgSizeTwo.style.display = "none";
-        uploadNewButtonThree.style.display = "inline-block";
-        clearButtonThree.style.display = "inline-block";
-      }
-    }
-  
-    const input = document.getElementById("avatar");
-    const previewAvatar = document.getElementById("preview");
-    const nonePrev = document.getElementById("nonePreview");
-    const avatarPrev = document.getElementById("avatarPrev");
-    const uploadButton = document.getElementById("uploadBtn");
-    const uploadNewButtonOne = document.getElementById("uploadNew");
-    const clearButtonOne = document.getElementById("clearButton");
-    input.addEventListener("change", uploadImage);
-    clearButtonOne.addEventListener("click", ClearButtonOne);
-  
-    const heroImage = document.getElementById("heroImage");
-    const previewHero = document.getElementById("previewHero");
-    const heroPrevNone = document.getElementById("previewHeroNone");
-    const previewHeroMinOne = document.getElementById("previewHeroMinOne");
-    const imgSizeOne = document.getElementById("imgSizeOne");
-    const clearButtonTwo = document.getElementById("clearTwoButton");
-    const uploadNewButtonTwo = document.getElementById("uploadTwoNew");
-    heroImage.addEventListener("change", uploadHeroImage);
-    clearButtonTwo.addEventListener("click", ClearButtonTwo);
-  
-    const heroImageMin = document.getElementById("heroImageMin");
-    const previewHeroMin = document.getElementById("previewHeroMin");
-    const heroImageMinNone = document.getElementById("heroImageMinNone");
-    const previewHeroMinTwo = document.getElementById("previewHeroMinTwo");
-    const imgSizeTwo = document.getElementById("imgSizeTwo");
-    const clearButtonThree = document.getElementById("clearThreeButton");
-    const uploadNewButtonThree = document.getElementById("uploadThreeNew");
-    heroImageMin.addEventListener("change", uploadHeroImageMin);
-    clearButtonThree.addEventListener("click", ClearButtonThree);
-  
-    let titlePreview = document.getElementById("title");
-    titlePreview.addEventListener("change", function () {
-      document.getElementById("titlePrev").innerText = titlePreview.value;
-      document.getElementById("titlePrevTwo").innerText = titlePreview.value;
-      if (titlePreview.value.length != "") {
-        titlePreview.style.background = "#f7f7f7";
-        titlePreview.style.borderBottom = "1px solid #2e2e2e";
-      } else {
-        titlePreview.style.background = "#fff";
-        titlePreview.style.borderBottom = "1px solid #eaeaea";
-      }
+      return response.json();
     });
-  
-    let subtitlePreview = document.getElementById("subtitle");
-    subtitlePreview.addEventListener("change", function () {
-      document.getElementById("subtitlePrev").innerText = subtitlePreview.value;
-      document.getElementById("subtitlePrevTwo").innerText =
-        subtitlePreview.value;
-      if (subtitlePreview.value != "") {
-        subtitlePreview.style.background = "#f7f7f7";
-        subtitlePreview.style.borderBottom = "1px solid #2e2e2e";
-      } else {
-        subtitlePreview.style.background = "#fff";
-        subtitlePreview.style.borderBottom = "1px solid #eaeaea";
-      }
-    });
-  
-    let authorPreview = document.getElementById("author");
-    authorPreview.addEventListener("change", function () {
-      document.getElementById("authorPrev").innerText = authorPreview.value;
-      if (authorPreview.value != "") {
-        authorPreview.style.background = "#f7f7f7";
-        authorPreview.style.borderBottom = "1px solid #2e2e2e";
-      } else {
-        authorPreview.style.background = "#fff";
-        authorPreview.style.borderBottom = "1px solid #eaeaea";
-      }
-    });
-  
-    let inputDate = document.getElementById("date");
-    inputDate.addEventListener("change", function () {
-      var date = new Date(inputDate.value);
-      var day = date.getDate();
-      var month = date.getMonth() + 1;
-      var year = date.getFullYear();
-      var formattedDate = `${day < 10 ? "0" + day : day}/${
-        month < 10 ? "0" + month : month
-      }/${year}`;
-      document.getElementById("datePrev").innerText = formattedDate;
-      if (inputDate.value != "") {
-        inputDate.style.background = "#f7f7f7";
-        inputDate.style.borderBottom = "1px solid #2e2e2e";
-      } else {
-        inputDate.style.background = "#fff";
-        inputDate.style.borderBottom = "1px solid #eaeaea";
-      }
-    });
-    const msgError = document.querySelector(".main__msg-error");
-    const msgSubmit = document.querySelector(".main__msg-submit");
-  
-    function isValidateForm() {
-      let title = document.getElementById("title").value;
-      let subtitle = document.getElementById("subtitle").value;
-      let avatar = document.getElementById("avatar").value;
-      let author = document.getElementById("author").value;
-      let date = document.getElementById("date").value;
-      let heroImg = document.getElementById("heroImageMin").value;
-      let heroImgMin = document.getElementById("heroImageMin").value;
-      if (
-        title === "" ||
-        subtitle === "" ||
-        avatar === "" ||
-        author === "" ||
-        date === "" ||
-        heroImg === "" ||
-        heroImgMin === ""
-      ) {
-        if (title === "") {
-          document.getElementById("title").style.borderBottom =
-            "1px solid #e86961";
-          document.querySelector(".main__title-required").style.display = "block";
-        } else {
-          document.getElementById("title").style.borderBottom =
-            "1px solid #2e2e2e";
-          document.querySelector(".main__title-required").style.display = "none";
-        }
-        if (subtitle === "") {
-          document.getElementById("subtitle").style.borderBottom =
-            "1px solid #e86961";
-          document.querySelector(".main__subtitle-required").style.display =
-            "block";
-        } else {
-          document.getElementById("subtitle").style.borderBottom =
-            "1px solid #2e2e2e";
-          document.querySelector(".main__subtitle-required").style.display =
-            "none";
-        }
-        if (date === "") {
-          document.getElementById("date").style.borderBottom =
-            "1px solid #e86961";
-          document.querySelector(".main__date-required").style.display = "block";
-        } else {
-          document.getElementById("date").style.borderBottom =
-            "1px solid #2e2e2e";
-          document.querySelector(".main__date-required").style.display = "none";
-        }
-        if (author === "") {
-          document.getElementById("author").style.borderBottom =
-            "1px solid #e86961";
-          document.querySelector(".main__author-required").style.display =
-            "block";
-        } else {
-          document.getElementById("author").style.borderBottom =
-            "1px solid #2e2e2e";
-          document.querySelector(".main__author-required").style.display = "none";
-        }
-        msgError.style.display = "block";
-        msgSubmit.style.display = "none";
-        return false;
-      } else {
-        msgSubmit.style.display = "block";
-        msgError.style.display = "none";
-        document.querySelector(".main__title-required").style.display = "none";
-        document.querySelector(".main__subtitle-required").style.display = "none";
-        document.querySelector(".main__author-required").style.display = "none";
-        document.querySelector(".main__date-required").style.display = "none";
-        return true;
-      }
-    }
-  
-    function getCheckRadioValue() {
-      var elements = document.getElementsByName("publish");
-  
-      for (var i = 0, len = elements.length; i < len; i++)
-        if (elements[i].checked) return elements[i].value;
-    }
-  
-    const form = document.querySelector("#form");
-    const publishButton = document.querySelector("#publishButton");
-  
-    publishButton.addEventListener("click", function () {
-      const formData = new FormData(form);
-      const data = {};
-      let imageCount = 0;
-      let valid = isValidateForm();
-      if (valid === true) {
-        formData.forEach(function (value, key) {
-          if (key === "avatar" || key === "heroImage" || key === "heroImageMin") {
-            const imageInput = document.querySelector("#" + key);
-            if (imageInput.files.length > 0) {
-              const file = imageInput.files[0];
-              const reader = new FileReader();
-              reader.onload = function (event) {
-                data[key] = event.target.result;
-                imageCount++;
-                if (imageCount === 3) {
-                  const post = getCheckRadioValue();
-                  fetch("http://localhost:8001/api.php", {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                      title: data.title,
-                      subtitle: data.subtitle,
-                      author: data.author,
-                      post_alt: data.title,
-                      author_url: data.avatar,
-                      image_url: data.heroImageMin,
-                      image_content: data.heroImage,
-                      publish_date: data.date,
-                      content: data.content,
-                      featured: parseInt(post),
-                    }),
-                  });
-                }
-              };
-              reader.readAsDataURL(file);
-            }
-          } else {
-            data[key] = value;
-          }
-        });
-      }
-    });
-  });
+  }
+}
